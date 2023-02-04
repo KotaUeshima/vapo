@@ -8,6 +8,11 @@
   html {
     font-family: "Inter", sans-serif;
   }
+
+  body {
+    @apply overflow-x-hidden;
+    @apply overflow-y-hidden;
+  }
 }
 
 @layer components {
