@@ -1,11 +1,23 @@
 import React, { useState } from "react";
+import { MdOutlineTransitEnterexit } from "react-icons/md";
+import URL from "./url";
 
-function SubmitPost() {
+function SubmitPost({ addPost }) {
   const [show, setShow] = useState(false);
   const [text, setText] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
+    // fetch(`${URL}/`, {
+    //   method: "POST",
+    //   headers: {
+    //     Accepts: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({ text }),
+    // })
+    //   .then((res) => res.json())
+    //   .then(addPost(post));
     setText("");
     setShow(false);
   }
@@ -15,6 +27,7 @@ function SubmitPost() {
       <div className="flex flex-row space-x-3">
         <input
           onClick={() => setShow(true)}
+          placeholder="Click"
           className="border-2 focus:outline-none rounded-md"
         />
         <button className="text-sm font-thin">Share Your Thoughts</button>
@@ -22,7 +35,15 @@ function SubmitPost() {
 
       {show && (
         <div className="fixed inset-0 z-20 bg-gray-300 bg-opacity-75 transition-opacity flex justify-center items-center">
-          <div className="h-[30vh] w-[40vw] bg-white rounded-md">
+          <div className="w-[40vw] bg-white rounded-md">
+            <div className="h-10 w-full flex justify-end">
+              <MdOutlineTransitEnterexit
+                onClick={() => setShow(false)}
+                size={30}
+                className="text-gray-500 hover:text-black ease-in-out duration-300"
+              />
+            </div>
+            <h2 className="text-center text-4xl font-semibold">Share</h2>
             <form
               onSubmit={(e) => handleSubmit(e)}
               className="flex flex-col space-y-6 p-10"
@@ -33,7 +54,12 @@ function SubmitPost() {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
               />
-              <button className="w-full py-2 rounded-md bg-primary text-white">
+              <button
+                className={`${
+                  text.length === 0 ? "bg-gray-300" : "bg-primary"
+                } w-full py-2 rounded-md text-white`}
+                disabled={text.length === 0}
+              >
                 Submit Post
               </button>
             </form>

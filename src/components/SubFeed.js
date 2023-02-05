@@ -1,7 +1,16 @@
 import React, { useState } from "react";
+import URL from "./url";
 
 function SubFeed({ show }) {
   const [reply, setReply] = useState("");
+
+  // const [subPosts, setSubPosts] = useState([]);
+
+  // useEffect(() => {
+  //   fetch(`${URL}/`)
+  //     .then((res) => res.json())
+  //     .then(setPosts);
+  // }, []);
 
   const example = [
     {

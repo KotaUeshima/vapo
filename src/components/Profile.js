@@ -3,8 +3,21 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import ProgressProvider from "./ProgressProvider";
 import CountUp from "react-countup";
+import URL from "./url";
 
 function Profile() {
+  // const [username, setUsername] = useState("");
+  // const [value, setValue] = useState(0)
+
+  // useEffect(() => {
+  //   fetch(`${URL}/`)
+  //     .then((res) => res.json())
+  //     .then(setUsername);
+  //   fetch(`${URL}/`)
+  //     .then((res) => res.json())
+  //     .then(setValue);
+  // }, []);
+
   const value = 72;
 
   return (
