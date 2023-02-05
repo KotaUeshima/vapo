@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { AiOutlineLike, AiOutlineComment } from "react-icons/ai";
 import { BsEmojiLaughing } from "react-icons/bs";
 
-function Post({ show, setShow }) {
+function Post({ id, show, setShow }) {
   const [commentClicked, setCommentClicked] = useState(false);
   const [likeClicked, setLikeClicked] = useState(false);
   const [laughClicked, setLaughClicked] = useState(false);
@@ -29,7 +29,11 @@ function Post({ show, setShow }) {
       <div className="flex flex-row space-x-3">
         <button
           onClick={() => {
-            setShow(!show);
+            if (commentClicked) {
+              setShow(0);
+            } else {
+              setShow(id);
+            }
             setCommentClicked(!commentClicked);
           }}
           className={`${

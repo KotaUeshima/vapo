@@ -8,6 +8,9 @@ module.exports = {
         secondary: "#86C232",
       },
     },
+    fontFamily: {
+      profile: ["Montserrat"],
+    },
   },
   plugins: [],
 };
