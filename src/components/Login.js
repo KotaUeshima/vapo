@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { userID } from "./atoms";
 import { useRecoilValue, useSetRecoilState } from "recoil";
@@ -11,6 +11,8 @@ function Login() {
   });
   const setUserID = useSetRecoilState(userID);
   const id = useRecoilValue(userID);
+
+  let navigate = useNavigate();
 
   console.log(id);
 
@@ -39,6 +41,7 @@ function Login() {
             password: "",
           });
           setUserID(data.user_id);
+          navigate("/home");
         } else {
           console.log("error");
         }
