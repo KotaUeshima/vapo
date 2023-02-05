@@ -1,5 +1,7 @@
 // import { upload } from "@testing-library/user-event/dist/upload";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 function Signup() {
   const [userObj, setUserObj] = useState({
@@ -37,7 +39,11 @@ function Signup() {
   }
 
   return (
-    <div>
+    <motion.div
+      intial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <form
         onSubmit={(e) => {
           handleSubmit(e);
@@ -87,12 +93,12 @@ function Signup() {
       <div className="flex justify-center items-center mt-5">
         <span>
           Already a member?{" "}
-          <a href="/login" className="underline">
+          <Link to="/" className="underline">
             Log In
-          </a>
+          </Link>
         </span>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

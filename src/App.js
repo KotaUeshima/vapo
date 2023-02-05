@@ -1,14 +1,14 @@
 import "./App.css";
 import Header from "./components/Header";
-import Home from "./components/Home";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
+import { BrowserRouter } from "react-router-dom";
+import AnimatedRoutes from "./components/AnimatedRoutes";
 
 function App() {
   return (
-    <div>
-      <Signup />
-    </div>
+    <BrowserRouter>
+      <Header />
+      <AnimatedRoutes />
+    </BrowserRouter>
   );
 }
 

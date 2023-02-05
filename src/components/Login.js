@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 function Login() {
   const [userObj, setUserObj] = useState({
@@ -34,7 +36,11 @@ function Login() {
   }
 
   return (
-    <div>
+    <motion.div
+      intial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <form
         onSubmit={(e) => {
           handleSubmit(e);
@@ -77,12 +83,12 @@ function Login() {
       <div className="flex justify-center items-center mt-5">
         <span>
           Not a member?{" "}
-          <a href="/" className="underline">
+          <Link to="/signup" className="underline">
             Sign Up
-          </a>
+          </Link>
         </span>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
