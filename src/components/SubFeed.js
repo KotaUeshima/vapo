@@ -33,8 +33,11 @@ function SubFeed({ show }) {
       body: JSON.stringify({ post_id: show, content: reply }),
     })
       .then((res) => res.json())
-      .then((subPost) => {
-        console.log(subPost);
+      .then(() => {
+        setSubPosts((subPosts) => [
+          { post_id: show, content: reply },
+          ...subPosts,
+        ]);
       });
     setReply("");
   }
