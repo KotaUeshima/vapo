@@ -11,6 +11,7 @@ function SubmitPost({ addPost }) {
   const userIDValue = useRecoilValue(userID);
 
   function handleSubmit(e) {
+    console.log(userIDValue.id);
     e.preventDefault();
     fetch("/create_post", {
       method: "POST",
@@ -18,7 +19,7 @@ function SubmitPost({ addPost }) {
         Accepts: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ user_id: userIDValue, content: text }),
+      body: JSON.stringify({ user_id: userIDValue.id, content: text }),
     })
       .then((res) => res.json())
       .then((post) => {

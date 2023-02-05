@@ -37,7 +37,7 @@ function Login() {
             username: "",
             password: "",
           });
-          setUserID(data.user_id);
+          setUserID({ id: data.user_id });
           navigate("/home");
         } else {
           console.log("error");
