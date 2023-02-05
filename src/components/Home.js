@@ -14,9 +14,19 @@ function Home() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch("/posts")
+    fetch("/get_post", {
+      method: "POST",
+      headers: {
+        Accepts: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ user_id: userIDValue }),
+    })
       .then((res) => res.json())
-      .then(setPosts);
+      .then((data) => {
+        console.log(data);
+        setPosts(data);
+      });
   }, []);
 
   function addPost(post) {
