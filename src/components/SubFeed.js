@@ -1,16 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import URL from "./url";
 
 function SubFeed({ show }) {
   const [reply, setReply] = useState("");
 
-  // const [subPosts, setSubPosts] = useState([]);
+  const [subPosts, setSubPosts] = useState([]);
 
-  // useEffect(() => {
-  //   fetch(`${URL}/`)
-  //     .then((res) => res.json())
-  //     .then(setPosts);
-  // }, []);
+  useEffect(() => {
+    fetch("/get_subpost", {
+      method: "POST",
+      headers: {
+        Accepts: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ post_id: show }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setSubPosts(data);
+      });
+  }, []);
 
   const example = [
     {
@@ -38,6 +48,18 @@ function SubFeed({ show }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    fetch("/create_sub_post", {
+      method: "POST",
+      headers: {
+        Accepts: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ post_id: show, text: reply }),
+    })
+      .then((res) => res.json())
+      .then((subPost) => {
+        console.log(subPost);
+      });
     setReply("");
   }
 

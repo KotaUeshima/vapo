@@ -1,23 +1,29 @@
 import React, { useState } from "react";
 import { MdOutlineTransitEnterexit } from "react-icons/md";
 import URL from "./url";
+import { useRecoilValue } from "recoil";
+import { userID } from "./atoms";
 
 function SubmitPost({ addPost }) {
   const [show, setShow] = useState(false);
   const [text, setText] = useState("");
 
+  const userIDValue = useRecoilValue(userID);
+
   function handleSubmit(e) {
     e.preventDefault();
-    // fetch(`${URL}/`, {
-    //   method: "POST",
-    //   headers: {
-    //     Accepts: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ text }),
-    // })
-    //   .then((res) => res.json())
-    //   .then(addPost(post));
+    fetch("/create_post", {
+      method: "POST",
+      headers: {
+        Accepts: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ user_id: userIDValue, text: text }),
+    })
+      .then((res) => res.json())
+      .then((post) => {
+        addPost(post);
+      });
     setText("");
     setShow(false);
   }
