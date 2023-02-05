@@ -46,6 +46,8 @@ function SubFeed({ show }) {
     },
   ];
 
+  console.log(reply);
+
   function handleSubmit(e) {
     e.preventDefault();
     fetch("/create_sub_post", {
@@ -97,7 +99,11 @@ function SubFeed({ show }) {
           onSubmit={(e) => handleSubmit(e)}
           className="flex flex-row space-x-2"
         >
-          <textarea className="focus:outline-none border-2 p-2 border-primary rounded-md" />
+          <textarea
+            value={reply}
+            onChange={(e) => setReply(e.target.value)}
+            className="focus:outline-none border-2 p-2 border-primary rounded-md"
+          />
           <button className="px-4 py-2 bg-secondary rounded-md drop-shadow-lg">
             Reply
           </button>

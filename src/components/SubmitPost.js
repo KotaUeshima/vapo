@@ -11,7 +11,6 @@ function SubmitPost({ addPost }) {
   const userIDValue = useRecoilValue(userID);
 
   function handleSubmit(e) {
-    console.log(userIDValue.id);
     e.preventDefault();
     fetch("/create_post", {
       method: "POST",
