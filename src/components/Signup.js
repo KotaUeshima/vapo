@@ -1,4 +1,3 @@
-// import { upload } from "@testing-library/user-event/dist/upload";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -16,10 +15,9 @@ function Signup() {
     }));
   }
 
-  console.log(userObj);
-
   function handleSubmit(e) {
     e.preventDefault();
+    console.log("hello");
     fetch("/create_user", {
       method: "POST",
       headers: {
@@ -40,15 +38,13 @@ function Signup() {
 
   return (
     <motion.div
-      intial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      initial={{ width: 0, opacity: 0 }}
+      animate={{ width: "100%", opacity: 1 }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.5 } }}
+      transition={{ duration: 1 }}
     >
       <form
-        onSubmit={(e) => {
-          handleSubmit(e);
-        }}
-        action=""
+        onSubmit={(e) => handleSubmit(e)}
         className="flex flex-col justify-center items-center"
       >
         <h3 className="text-5xl mb-20 mt-20">Quit vaping now:</h3>
@@ -83,10 +79,7 @@ function Signup() {
             placeholder="Confirm your password..."
           />
         </div> */}
-        <button
-          className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-          type="button"
-        >
+        <button className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
           Sign Up
         </button>
       </form>

@@ -37,9 +37,10 @@ function Login() {
 
   return (
     <motion.div
-      intial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      intial={{ width: 0, opacity: 0 }}
+      animate={{ width: "100%", opacity: 1 }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.5 } }}
+      transition={{ duration: 1 }}
     >
       <form
         onSubmit={(e) => {
@@ -73,10 +74,7 @@ function Login() {
             }}
           />
         </div>
-        <button
-          className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-          type="button"
-        >
+        <button className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
           Log In
         </button>
       </form>
