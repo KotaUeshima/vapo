@@ -21,9 +21,8 @@ function SubmitPost({ addPost }) {
       body: JSON.stringify({ user_id: userIDValue.id, content: text }),
     })
       .then((res) => res.json())
-      .then((post) => {
-        addPost(post);
-      });
+      .then(() => {});
+    addPost({ user_id: userIDValue.id, content: text });
     setText("");
     setShow(false);
   }
