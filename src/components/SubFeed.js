@@ -20,7 +20,7 @@ function SubFeed({ show }) {
       .then((data) => {
         setSubPosts(data);
       });
-  }, []);
+  }, [show]);
 
   function handleSubmit(e) {
     e.preventDefault();
