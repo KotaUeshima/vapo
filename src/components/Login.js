@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { userID } from "./atoms";
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 
 function Login() {
   const [userObj, setUserObj] = useState({
@@ -10,11 +10,8 @@ function Login() {
     password: "",
   });
   const setUserID = useSetRecoilState(userID);
-  const id = useRecoilValue(userID);
 
   let navigate = useNavigate();
-
-  console.log(id);
 
   function handleChange(e) {
     setUserObj((userObj) => ({

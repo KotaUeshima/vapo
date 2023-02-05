@@ -1,20 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Post from "./Post";
 import Profile from "./Profile";
 import SubFeed from "./SubFeed";
 import SubmitPost from "./SubmitPost";
 import URL from "./url";
+import { useRecoilValue } from "recoil";
+import { userID } from "./atoms";
 
 function Home() {
   const [show, setShow] = useState(0);
+  const userIDValue = useRecoilValue(userID);
 
   const [posts, setPosts] = useState([]);
 
-  // useEffect(() => {
-  //   fetch(`${URL}/`)
-  //     .then((res) => res.json())
-  //     .then(setPosts);
-  // }, []);
+  useEffect(() => {
+    fetch("/posts")
+      .then((res) => res.json())
+      .then(setPosts);
+  }, []);
 
   function addPost(post) {
     setPosts((posts) => [post, ...posts]);
