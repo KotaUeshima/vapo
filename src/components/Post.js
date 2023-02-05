@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { AiOutlineLike, AiOutlineComment } from "react-icons/ai";
 import { BsEmojiLaughing } from "react-icons/bs";
 
-function Post({ id, show, setShow }) {
+function Post({ id, show, setShow, username, content, date }) {
   const [commentClicked, setCommentClicked] = useState(false);
   const [likeClicked, setLikeClicked] = useState(false);
   const [laughClicked, setLaughClicked] = useState(false);
@@ -16,15 +16,12 @@ function Post({ id, show, setShow }) {
           alt="Rounded avatar"
         />
         <div>
-          <h3 className="text-base">Samantha Gray</h3>
-          <p className="text-xs text-gray-500">October, 8th 2023</p>
+          <h3 className="text-base">{username}</h3>
+          <p className="text-xs text-gray-500">{date}</p>
         </div>
       </div>
       <div>
-        <p>
-          First day was really tough! But managed to get by, really helped me
-          exercise this morning!
-        </p>
+        <p>{content}</p>
       </div>
       <div className="flex flex-row space-x-3">
         <button

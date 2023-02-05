@@ -20,11 +20,10 @@ function Home() {
         Accepts: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ user_id: userIDValue }),
+      body: JSON.stringify({ user_id: userIDValue.id }),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setPosts(data);
       });
   }, []);
@@ -32,30 +31,6 @@ function Home() {
   function addPost(post) {
     setPosts((posts) => [post, ...posts]);
   }
-
-  const example = [
-    {
-      id: 1,
-    },
-    {
-      id: 2,
-    },
-    {
-      id: 3,
-    },
-    {
-      id: 4,
-    },
-    {
-      id: 5,
-    },
-    {
-      id: 6,
-    },
-    {
-      id: 7,
-    },
-  ];
 
   return (
     <div className="h-[90vh] w-screen bg-primary flex flex-row">
@@ -65,8 +40,18 @@ function Home() {
       <div className="h-full w-[50vw] flex flex-col overflow-y-scroll">
         <SubmitPost addPost={addPost} />
         <div className="mt-10 flex flex-col space-y-4">
-          {example.map(({ id }) => {
-            return <Post key={id} id={id} show={show} setShow={setShow} />;
+          {posts.map(({ id, username, content, date }) => {
+            return (
+              <Post
+                key={id}
+                id={id}
+                show={show}
+                setShow={setShow}
+                username={username}
+                content={content}
+                date={date}
+              />
+            );
           })}
         </div>
       </div>

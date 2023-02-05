@@ -7,7 +7,7 @@ function SubFeed({ show }) {
   const [subPosts, setSubPosts] = useState([]);
 
   useEffect(() => {
-    fetch("/get_subpost", {
+    fetch("/get_post", {
       method: "POST",
       headers: {
         Accepts: "application/json",
@@ -45,8 +45,6 @@ function SubFeed({ show }) {
       id: 7,
     },
   ];
-
-  console.log(reply);
 
   function handleSubmit(e) {
     e.preventDefault();
