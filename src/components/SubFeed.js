@@ -54,7 +54,7 @@ function SubFeed({ show }) {
         Accepts: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ post_id: show, text: reply }),
+      body: JSON.stringify({ post_id: show, content: reply }),
     })
       .then((res) => res.json())
       .then((subPost) => {

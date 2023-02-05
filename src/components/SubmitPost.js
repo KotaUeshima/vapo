@@ -18,7 +18,7 @@ function SubmitPost({ addPost }) {
         Accepts: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ user_id: userIDValue, text: text }),
+      body: JSON.stringify({ user_id: userIDValue, content: text }),
     })
       .then((res) => res.json())
       .then((post) => {
