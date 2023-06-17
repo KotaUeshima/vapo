@@ -4,7 +4,7 @@ Vapo is a social support platform for young adults attempting to quit nicotine, 
 
 App was created using create-react-app
 
-## Install
+## Libraries
 
 ```
 npm install --save react-circular-progressbar
@@ -16,9 +16,17 @@ npm i react-router-dom
 npm i framer-motion
 ```
 
+# Demo
+
+Here is a link to our presentation: [presentation](https://www.youtube.com/watch?v=_9E6UeL-dFM&ab_channel=ZeweiShen)
+
+## Screenshot(s)
+
+![screenshot](./public/screenshot.png)
+
 ## Backend
 
-[vapo-backend](https://github.com/SZW36/Vapo/tree/master/backend)
+Seee link for backend - [vapo-backend](https://github.com/SZW36/Vapo/tree/master/backend)
 
 ## Contributors
 
@@ -27,5 +35,3 @@ The other members of my team were:
 - Zewei Shen
 - Bruce Pan
 - Timothy Tso
-
-Here is a link to our presentation: [presentation](https://www.youtube.com/watch?v=_9E6UeL-dFM&ab_channel=ZeweiShen)
