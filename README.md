@@ -14,7 +14,7 @@ Here is a link to our presentation: [presentation](https://www.youtube.com/watch
 
 ## Backend
 
-Seee link for backend - [vapo-backend](https://github.com/SZW36/Vapo/tree/master/backend)
+See link for backend: [vapo-backend](https://github.com/SZW36/Vapo/tree/master/backend)
 
 ## Libraries
 
